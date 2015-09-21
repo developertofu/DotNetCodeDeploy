@@ -1,7 +1,7 @@
 version: 0.0
 os: windows
 files:
-  - source: \SQSTerster\bin\SQSTestClient\content\SQSTester.exe
+  - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe
     destination: c:\apps\sqstestclient
   - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe.config
     destination: c:\apps\sqstestclient
