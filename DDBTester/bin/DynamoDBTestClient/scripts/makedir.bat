@@ -1,0 +1,1 @@
+IF NOT EXIST c:\apps\dynamodbtestclient mkdir c:\apps\dynamodbtestclient

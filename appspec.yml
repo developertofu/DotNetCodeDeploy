@@ -1,0 +1,18 @@
+version: 0.0
+os: windows
+files:
+  - source: \DDBTester\bin\DynamoDBTestClient\content\DDBTester.exe
+    destination: c:\apps\dynamodbtestclient
+  - source: \DDBTester\bin\DynamoDBTestClient\content\DDBTester.exe.config
+    destination: c:\apps\dynamodbtestclient
+  - source: \DDBTester\bin\DynamoDBTestClient\content\AWSSDK.Core.dll
+    destination: c:\apps\dynamodbtestclient
+  - source: \DDBTester\bin\DynamoDBTestClient\content\AWSSDK.DynamoDBv2.dll
+    destination: c:\apps\dynamodbtestclient
+hooks:
+  BeforeInstall:
+    - location: \DDBTester\bin\DynamoDBTestClient\scripts\makedir.bat
+      timeout: 900
+  AfterInstall:
+    - location: \DDBTester\bin\DynamoDBTestClient\scripts\starttest.bat     
+      timeout: 900
