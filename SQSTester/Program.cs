@@ -69,7 +69,7 @@ namespace SQSTester
                 var sendMessageRequest = new SendMessageRequest
                     {
                         QueueUrl = myQueueUrl, //URL from initial queue creation
-                        MessageBody = string.Format("This is my message text from server - {0}",System.Environment.MachineName)
+                        MessageBody = string.Format("TEST 2 - This is my message text from server - {0}",System.Environment.MachineName)
                     };
                 sqs.SendMessage(sendMessageRequest);
 
