@@ -25,7 +25,7 @@ namespace SQSTester
     {
         public static void Main(string[] args)
         {
-            var sqs = new AmazonSQSClient();
+           var sqs = new AmazonSQSClient();
 
             try
             {
