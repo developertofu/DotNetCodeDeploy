@@ -150,9 +150,7 @@
     <None Include="bin\DynamoDBTestClient\scripts\makedir.bat" />
     <None Include="bin\DynamoDBTestClient\scripts\starttest.bat" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="bin\DynamoDBTestClient\content\AWSSDK.Core.dll" />
     <Content Include="bin\DynamoDBTestClient\content\AWSSDK.Core.xml" />
