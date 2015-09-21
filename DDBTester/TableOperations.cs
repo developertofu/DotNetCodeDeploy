@@ -26,7 +26,7 @@ namespace DDBTester
 {
     public static class TableOperations
     {
-        static readonly string[] SAMPLE_TABLE_NAMES = { "Actors", "Movies" };
+        static readonly string[] SAMPLE_TABLE_NAMES = { "Actors1", "Movies1" };
         /// <summary>
         /// Creates all samples defined in SampleTables map
         /// </summary>
@@ -38,12 +38,12 @@ namespace DDBTester
             Console.WriteLine("Number of tables: " + currentTables.Count);
 
             bool tablesAdded = false;
-            if (!currentTables.Contains("Actors"))
+            if (!currentTables.Contains("Actors1"))
             {
                 Console.WriteLine("Table Actors does not exist, creating");
                 client.CreateTable(new CreateTableRequest
                 {
-                    TableName = "Actors",
+                    TableName = "Actors1",
                     ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = 3, WriteCapacityUnits = 1 },
                     KeySchema = new List<KeySchemaElement>
                     {
@@ -61,12 +61,12 @@ namespace DDBTester
                 tablesAdded = true;
             }
 
-            if (!currentTables.Contains("Movies"))
+            if (!currentTables.Contains("Movies1"))
             {
                 Console.WriteLine("Table Movies does not exist, creating");
                 client.CreateTable(new CreateTableRequest
                 {
-                    TableName = "Movies",
+                    TableName = "Movies1",
                     ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = 3, WriteCapacityUnits = 1 },
                     KeySchema = new List<KeySchemaElement>
                     {

@@ -18,6 +18,7 @@ using System;
 using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
+using Amazon.Runtime;
 
 namespace DDBTester
 {
@@ -27,7 +28,9 @@ namespace DDBTester
         {
             Console.WriteLine();
             Console.WriteLine("Setting up DynamoDB client");
+
             AmazonDynamoDBClient client = new AmazonDynamoDBClient();
+
 
             Console.WriteLine();
             Console.WriteLine("Creating sample tables");

@@ -1,0 +1,1 @@
+IF NOT EXIST c:\apps\sqstestclient mkdir c:\apps\sqstestclient
