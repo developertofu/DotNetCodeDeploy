@@ -1,0 +1,18 @@
+version: 0.0
+os: windows
+files:
+  - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe
+    destination: c:\apps\sqstestclient
+  - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe.config
+    destination: c:\apps\sqstestclient
+  - source: \SQSTester\bin\SQSTestClient\content\AWSSDK.Core.dll
+    destination: c:\apps\sqstestclient
+  - source: \SQSTester\bin\SQSTestClient\content\AWSSDK.SQS.dll
+    destination: c:\apps\sqstestclient
+hooks:
+  BeforeInstall:
+    - location: \SQSTester\bin\SQSTestClient\scripts\makedir.bat
+      timeout: 900
+  AfterInstall:
+    - location: \SQSTester\bin\SQSTestClient\scripts\starttest.bat     
+      timeout: 900
