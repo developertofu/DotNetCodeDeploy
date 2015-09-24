@@ -7,7 +7,7 @@ files:
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
   - source: \SoccerTeamWeb\bin\SoccerTeamWeb.dll
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
-	- source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
+  - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
     destination: c:\temp
 hooks:
   BeforeInstall:
