@@ -4,6 +4,9 @@ $iisAppPoolDotNetVersion = "v4.0"
 $iisAppName = "soccerteamweb"
 $directoryPath = "C:\inetpub\wwwroot\soccerteamweb"
 
+#stop the default web site so we can use port :80
+Stop-WebSite 'Default Web Site'
+
 #navigate to the app pools root
 cd IIS:\AppPools\
 

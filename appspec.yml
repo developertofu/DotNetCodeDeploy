@@ -6,7 +6,7 @@ files:
   - source: \SoccerTeamWeb\bin\deployment\content\Web.config
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
   - source: \SoccerTeamWeb\bin\deployment\content\SoccerTeamWeb.dll
-    destination: c:\inetpub\wwwroot\SoccerTeamWeb
+    destination: c:\inetpub\wwwroot\SoccerTeamWeb\bin
   - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
     destination: c:\temp
 hooks:
