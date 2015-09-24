@@ -57,8 +57,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\deployment\content\Default.aspx" />
+    <Content Include="bin\deployment\content\SoccerTeamWeb.dll" />
     <Content Include="bin\deployment\scripts\installwebsite.bat" />
     <Content Include="bin\deployment\scripts\installwebsite.ps1" />
+    <Content Include="bin\deployment\content\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,8 +110,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /y "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\bin\SoccerTeamWeb.dll" "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\bin\deployment\content"
+xcopy /y "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\Default.aspx" "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\bin\deployment\content"
+xcopy /y "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\Web.config" "Z:\Projects\WindowsCodeDeployDemo\SoccerTeamWeb\bin\deployment\content"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

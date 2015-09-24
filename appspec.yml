@@ -1,11 +1,11 @@
 version: 0.0
 os: windows
 files:
-  - source: \SoccerTeamWeb\Default.aspx
+  - source: \SoccerTeamWeb\bin\deployment\content\Default.aspx
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
-  - source: \SoccerTeamWeb\Web.config
+  - source: \SoccerTeamWeb\bin\deployment\content\Web.config
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
-  - source: \SoccerTeamWeb\bin\SoccerTeamWeb.dll
+  - source: \SoccerTeamWeb\bin\deployment\content\SoccerTeamWeb.dll
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
   - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
     destination: c:\temp
