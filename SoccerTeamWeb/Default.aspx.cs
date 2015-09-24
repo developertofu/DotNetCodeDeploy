@@ -12,24 +12,51 @@ namespace SoccerTeamWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+         
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             SqlConnection Conn = null;
-            try {
-                Conn = new SqlConnection("Data Source=testdbinstance.cx0dtiz2oqwo.us-east-1.rds.amazonaws.com;User ID=awsuser;Password={PASSWORD MISSING};Initial Catalog=soccerteam-stats");
+            try
+            {
+                string user = Request["txtUser"].ToString();
+                string password = Request["txtPassword"].ToString();
+                string connString = string.Format("Data Source=testdbinstance.cx0dtiz2oqwo.us-east-1.rds.amazonaws.com;User ID={0};Password={1};Initial Catalog=soccerteam-stats", user, password);
+                Conn = new SqlConnection(connString);
                 Conn.Open();
+                WriteContent(Conn);
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 Response.Write(ex.Message);
             }
+            finally
+            {
+                Conn.Close();
+                Conn.Dispose();
+            }
+        }
 
-            try {
+        private void WriteContent(SqlConnection Conn)
+        {
+            try
+            {
                 string strSQL = "SELECT * from Players";
-                SqlCommand DBCmd = new SqlCommand(strSQL,Conn);
+                SqlCommand DBCmd = new SqlCommand(strSQL, Conn);
                 SqlDataReader myDataReader;
                 myDataReader = DBCmd.ExecuteReader();
 
-                Response.Write("<table cellpadding='5'><tr><td align='center'><u>Name</u></td><td align='center'><u>Age</u></td><td align='center'><u>Goals</u></td><td align='center'><u>Position</u></td><td align='center'><u>Princess</u></td>");
-                while (myDataReader.Read()){
+                Response.Write("<table cellpadding='5'><tr><td align='center'><u>All Star</u></td><td align='center'><u>Name</u></td><td align='center'><u>Age</u></td><td align='center'><u>Goals</u></td><td align='center'><u>Position</u></td><td align='center'><u>Princess</u></td>");
+                while (myDataReader.Read())
+                {
                     Response.Write("<tr>");
+                    Response.Write("<td align='center'>");
+                    if ((int)myDataReader["Goals"] >= 5)
+                    {
+                        Response.Write("<img height='25' width='25' src='http://pngimg.com/upload/star_PNG1580.png' />");
+                    }
+                    Response.Write("</td>");
                     Response.Write("<td align='center'>" + myDataReader["Name"].ToString() + "</td>");
                     Response.Write("<td align='center'>" + myDataReader["Age"].ToString() + "</td>");
                     Response.Write("<td align='center'>" + myDataReader["Goals"].ToString() + "</td>");
@@ -68,11 +95,11 @@ namespace SoccerTeamWeb
                     Response.Write("'/></td></tr>");
 
                 }
-                Response.Write("</table>");
+                Response.Write("</table><br/><br/>");
                 myDataReader.Close();
-                Conn.Close();
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 Response.Write(ex.Message);
             }
         }

@@ -1,18 +1,15 @@
 version: 0.0
 os: windows
 files:
-  - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe
-    destination: c:\apps\sqstestclient
-  - source: \SQSTester\bin\SQSTestClient\content\SQSTester.exe.config
-    destination: c:\apps\sqstestclient
-  - source: \SQSTester\bin\SQSTestClient\content\AWSSDK.Core.dll
-    destination: c:\apps\sqstestclient
-  - source: \SQSTester\bin\SQSTestClient\content\AWSSDK.SQS.dll
-    destination: c:\apps\sqstestclient
+  - source: \SoccerTeamWeb\Default.aspx
+    destination: c:\inetpub\wwwroot\SoccerTeamWeb
+  - source: \SoccerTeamWeb\Web.config
+    destination: c:\inetpub\wwwroot\SoccerTeamWeb
+  - source: \SoccerTeamWeb\bin\SoccerTeamWeb.dll
+    destination: c:\inetpub\wwwroot\SoccerTeamWeb
+	- source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
+    destination: c:\temp
 hooks:
   BeforeInstall:
-    - location: \SQSTester\bin\SQSTestClient\scripts\makedir.bat
-      timeout: 900
-  AfterInstall:
-    - location: \SQSTester\bin\SQSTestClient\scripts\starttest.bat     
+    - location: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.bat
       timeout: 900

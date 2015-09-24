@@ -10,6 +10,12 @@
     <form id="form1" runat="server">
     <div>
     
+        user:
+        <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+&nbsp;password:
+        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Get Players" />
+    
     </div>
     </form>
 </body>
