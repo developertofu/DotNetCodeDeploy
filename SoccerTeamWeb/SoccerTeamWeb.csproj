@@ -59,6 +59,8 @@
   <ItemGroup>
     <Content Include="bin\deployment\content\Default.aspx" />
     <Content Include="bin\deployment\content\SoccerTeamWeb.dll" />
+    <Content Include="bin\deployment\scripts\deletewebsite.bat" />
+    <Content Include="bin\deployment\scripts\deletewebsite.ps1" />
     <Content Include="bin\deployment\scripts\installwebsite.bat" />
     <Content Include="bin\deployment\scripts\installwebsite.ps1" />
     <Content Include="bin\deployment\content\Web.config" />
