@@ -10,6 +10,6 @@ files:
   - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
     destination: c:\temp
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.bat
       timeout: 900
