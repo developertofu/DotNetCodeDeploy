@@ -7,13 +7,13 @@ files:
     destination: c:\inetpub\wwwroot\SoccerTeamWeb
   - source: \SoccerTeamWeb\bin\deployment\content\SoccerTeamWeb.dll
     destination: c:\inetpub\wwwroot\SoccerTeamWeb\bin
-  - source: \SoccerTeamWeb\bin\deployment\scripts\deletewebsite.ps1
+  - source: \SoccerTeamWeb\deletewebsite.ps1
     destination: c:\temp
   - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
     destination: c:\temp
 hooks:
   BeforeInstall:
-    - location: \SoccerTeamWeb\bin\deployment\scripts\deletewebsite.bat
+    - location: \SoccerTeamWeb\deletewebsite.bat
       timeout: 900
   AfterInstall:
     - location: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.bat
