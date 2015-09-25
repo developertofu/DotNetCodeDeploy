@@ -61,8 +61,8 @@
     <Content Include="bin\deployment\content\SoccerTeamWeb.dll" />
     <Content Include="deletewebsite.bat" />
     <Content Include="deletewebsite.ps1" />
-    <Content Include="bin\deployment\scripts\installwebsite.bat" />
-    <Content Include="bin\deployment\scripts\installwebsite.ps1" />
+    <Content Include="installwebsite.bat" />
+    <Content Include="installwebsite.ps1" />
     <Content Include="bin\deployment\content\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

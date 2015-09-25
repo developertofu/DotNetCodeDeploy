@@ -9,12 +9,12 @@ files:
     destination: c:\inetpub\wwwroot\SoccerTeamWeb\bin
   - source: \SoccerTeamWeb\deletewebsite.ps1
     destination: c:\temp
-  - source: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.ps1
+  - source: \SoccerTeamWeb\installwebsite.ps1
     destination: c:\temp
 hooks:
   BeforeInstall:
     - location: \SoccerTeamWeb\deletewebsite.bat
       timeout: 900
   AfterInstall:
-    - location: \SoccerTeamWeb\bin\deployment\scripts\installwebsite.bat
+    - location: \SoccerTeamWeb\installwebsite.bat
       timeout: 900
