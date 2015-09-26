@@ -52,7 +52,7 @@ namespace SoccerTeamWeb
                 {
                     Response.Write("<tr>");
                     Response.Write("<td align='center'>");
-                    if ((int)myDataReader["Goals"] >= 8)
+                    if ((int)myDataReader["Goals"] >= 1)
                     {
                         Response.Write("<img height='25' width='25' src='http://pngimg.com/upload/star_PNG1580.png' />");
                     }
