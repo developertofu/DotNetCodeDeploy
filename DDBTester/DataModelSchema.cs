@@ -38,6 +38,9 @@ namespace DDBTester
         [DynamoDBProperty("Actors")]
         public List<string> ActorNames { get; set; }
 
+        [DynamoDBVersion]
+        public int? Version { get; set; }
+
         public override string ToString()
         {
             return string.Format(@"{0} - {1}
@@ -62,6 +65,9 @@ Actors: {2}", Title, ReleaseDate, string.Join(", ", ActorNames.ToArray()));
 
         [DynamoDBIgnore]
         public string Comment { get; set; }
+
+        [DynamoDBVersion]
+        public int? Version { get; set; }
 
         public TimeSpan Age
         {

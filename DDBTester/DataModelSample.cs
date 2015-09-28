@@ -38,7 +38,8 @@ namespace DDBTester
                     City = "Los Angeles",
                     Country = "USA"
                 },
-                HeightInMeters = 1.83f
+                HeightInMeters = 1.83f,
+                Version= 1
             };
             Actor michaelCaine = new Actor
             {
@@ -50,7 +51,8 @@ namespace DDBTester
                     City = "London",
                     Country = "England"
                 },
-                HeightInMeters = 1.88f
+                HeightInMeters = 1.88f,
+                Version = 1
             };
 
             Console.WriteLine("Creating movie");
@@ -63,13 +65,17 @@ namespace DDBTester
                 {
                     christianBale.Name,
                     michaelCaine.Name
-                }
+                },
+                Version = 1
             };
 
             Console.WriteLine("Saving actors and movie");
-            context.Save<Actor>(michaelCaine);
-            context.Save<Actor>(christianBale);
-            context.Save<Movie>(darkKnight);
+            DynamoDBOperationConfig config = new DynamoDBOperationConfig();
+            config.SkipVersionCheck = true;
+
+            context.Save<Actor>(michaelCaine,config);
+            context.Save<Actor>(christianBale,config);
+            context.Save<Movie>(darkKnight, config);
 
             Console.WriteLine("Creating and saving new actor");
             Actor maggieGyllenhaal = new Actor
@@ -82,9 +88,10 @@ namespace DDBTester
                     City = "New York City",
                     Country = "USA"
                 },
-                HeightInMeters = 1.75f
+                HeightInMeters = 1.75f,
+                Version = 1
             };
-            context.Save<Actor>(maggieGyllenhaal);
+            context.Save<Actor>(maggieGyllenhaal, config);
 
             Console.WriteLine();
             Console.WriteLine("Loading existing movie");
@@ -99,7 +106,7 @@ namespace DDBTester
             Console.WriteLine("Updating movie and saving");
             existingMovie.ActorNames.Add(maggieGyllenhaal.Name);
             existingMovie.Genres.Add("Thriller");
-            context.Save<Movie>(existingMovie);
+            context.Save<Movie>(existingMovie,config);
 
             Console.WriteLine("Adding movie with same hash key but different range key");
             Movie darkKnight89 = new Movie
@@ -112,9 +119,10 @@ namespace DDBTester
                     "Juan Diego",
                     "Fernando Guillén",
                     "Manuel de Blas"
-                }
+                },
+                Version=1
             };
-            context.Save<Movie>(darkKnight89);
+            context.Save<Movie>(darkKnight89, config);
 
             IEnumerable<Movie> movieQueryResults;
 
