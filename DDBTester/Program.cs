@@ -46,6 +46,7 @@ namespace DDBTester
 
             int version = d["Version"].AsInt();
             double height = d["Height"].AsDouble();
+            
             Console.WriteLine("Retrieved Item Version #" + version.ToString());
 
             var request = new UpdateItemRequest
