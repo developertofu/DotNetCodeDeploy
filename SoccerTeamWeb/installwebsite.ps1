@@ -7,6 +7,10 @@ $directoryPath = "C:\inetpub\wwwroot\soccerteamweb"
 #stop the default web site so we can use port :80
 Stop-WebSite 'Default Web Site'
 
+#set the autostart property so we don't have the default site kick back on after a reboot
+cd IIS:\Sites\
+Set-ItemProperty 'Default Web Site' serverAutoStart False
+
 #navigate to the app pools root
 cd IIS:\AppPools\
 
@@ -30,3 +34,4 @@ if (Test-Path $iisAppName -pathType container)
 #create the site
 $iisApp = New-Item $iisAppName -bindings @{protocol="http";bindingInformation=":80:"} -physicalPath $directoryPath
 $iisApp | Set-ItemProperty -Name "applicationPool" -Value $iisAppPoolName
+Set-ItemProperty $iisAppName serverAutoStart True
